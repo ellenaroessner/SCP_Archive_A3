@@ -1,0 +1,350 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@400;500;600&display=swap');
+/* By importing the text style i can specifically for go the one i want. Loaded through google fonts */
+
+/* * means to apply rule to absolutely everything */
+
+/* A visual representation of margin, border, padding, and content: */ 
+/* [ margin ][ border ][ padding ][ content ][ padding ][ border ][ margin ] */
+
+/* The way the 10px, 10px, 10px, 10px are formatted is top, right, bottom, left */
+
+/* These are all linked to the entire page, and to body of the website */
+
+html, /************  html, body = this isn't a class but a 'tag selector'. It makes the entire html, body and everything follow these rules, and doesn't have to be linked into the html ***********/
+body {
+  background: #0a0b0c;      /* colour for the background of the entire website */
+  color: #e8eaed;     /* This is the colour for the text */
+  font-family: 'IBM Plex Sans Condensed';   /* the text type i chose from the imported selection */
+  min-height: 100vh;  /* vh is a way to break down larger numbers... 1vh = 8px...  100vh = 800px */
+  padding: 0;
+  max-width: 900px;       /* this controls the width of the entire website display. i prefer the layout a bit tighter */
+  margin: 0 auto;
+  overflow: auto;   /* overflow controls the ratio of content to the display settings. auto makes it automatically handle it if overrflow happens:) */
+}
+
+/* This is the class that will be connected to the body tag in html */
+.container {
+  display: flex;      /* By using flex the objects are automatically placed side by side, not on top of each other */
+  flex-direction: column;      /* This specifically controls in which direction the flex travels */
+  min-height: 100vh;     /* this makes the minimum height of the content, not just the page. vh is a way to break down larger numbers... 1vh = 8px...  100vh = 800px */
+  padding: 12px;   /* This adds nice spacing around all the content even tho it fills the entire page */
+}
+
+/******** These next four .classes are all linked to the topbar of the website *********/
+.topbar {
+  display: flex;
+  align-items: center;      /* This simply aligns all my content in the middle */
+  justify-content: space-between;     /* This controls how much space is between all the items and the web sides */
+  padding: 10px 16px;
+  border: 0.5px solid #2a2e33;
+  background: #111315;    /* This is slightly lighter than the overall background for slight contrast */
+  margin-bottom: 2px;    /* this controls the space between the navlinks and the bottom of this container */
+}
+
+.topbar-right {   /* This section controls the placement of the container that 'field terminal' is in*/
+  display: flex;
+  align-items: center;    /* This controls where the text is displayed within it */
+  gap: 16px;    /* And this gives it a nice spacing between them all */
+}
+
+.logo-box {    /* this section is for the brown box around the orange text of the logo */
+  font-family: 'IBM Plex Mono';   /*  this is the imported text type */
+  font-size: 10px;   /* This is the font size */
+  color: #e8a020;     /* The font colour */
+  letter-spacing: 0.15em;   /* this is used to control the letter-spacing: em stands for the spacing between the letters in regard to their size in percentage... so 15em is 15% of the font */
+  text-transform: uppercase;         /* i want uppercase for the 'logo' */
+  border: 0.5px solid #7a5210;       /* size, solifity, and colour */
+  padding: 3px 8px;
+}
+
+.access-level {    /* this is for the 'field terminal' content, on the topbar...  */
+  font-family: 'IBM Plex Mono';   
+  font-size: 10px;     
+  color: #7a8290;    /* light gray for the font colour */
+  letter-spacing: 0.1em;   /* this means 10% of the font size is the spacing */
+}
+
+/***** This next section for the navlinks/the navbtns etc ******/
+.nav-strip {
+  display: flex;      /* By using flex the objects are automatically placed side by side, not on top of each other */
+  flex-wrap: wrap;       /* Essentially tells the item if there isn't enough space, move onto the next line */
+  gap: 2px;    
+  margin-bottom: 2px;    
+  overflow-x: auto; /* scroll if too wide */
+}
+
+.nav-btn {    /* this is the container for the nav-links to go into, makes it more stylish*/
+  font-family: 'IBM Plex Mono';   
+  font-size: 10px;   
+  letter-spacing: 0.12em;    /*  this is 12% of the overall font size */
+  text-transform: uppercase;        /* made all test uppercase */
+  padding: 7px 14px;    
+  border: 0.5px solid #2a2e33;      /* this gives it the outer border of the button */
+  background: #111315;        /* this controls the background colour in the buttons */
+  color: #7a8290;      /* this is the colour of the text. a good contrast between this and the background, not to much but enough */  
+  white-space: nowrap;  /* this means that this text won't flow over or break if the container gets to small */
+}
+
+.nav-btn:hover {      /* this makes the button turn lighter grey and the text white when the mouse is on it. */
+  border-color: #3a3f46;     /* the border colour has a nice set up */
+  color: #e8eaed;       /* text colour */
+  text-decoration: none;     /* also makes sure there is no underlining going on while hovering on it */
+}
+
+.nav-link {    /* this is for the links within the buttons  */
+  text-decoration: none;       /* this gets rid of the underlining */
+  color: inherit;     /* takes on the colouring in the nav-btn, it's parent */
+}
+
+/****** this is the main-grid and controls the layout of the entire content section   *******/
+.main-grid {    /* using grid allows me better control over the exact positioning of items */
+  display: grid;   
+  grid-template-columns: 220px 1fr; /* sidebar left, content right */
+  gap: 2px;    
+}
+
+/*******  This section for the sidebar  ***********/
+.sidebar {  
+  display: flex;    
+  flex-direction: column;  /* allows me to stack all sidebar blocks vertically, on top of each other */
+  gap: 2px;     /* small spacing between each block for nice visual spacing */
+} 
+
+.sidebar-block {     /* this is the container everything is in */
+  border: 0.5px solid #2a2e33;   /* thin border around each block for visual separation */
+  background: #111315;     /* dark background matching the topbar/nav for consistency */
+  padding: 12px;    /* space inside the block so content doesn’t touch edges and gives a more visually appealing look:) */
+}
+
+.sidebar-label {    /* this controls much of the inside stuff of the sidebar */
+  font-family: 'IBM Plex Mono';    
+  font-size: 10px;    /* small label font so not to be overbearing */
+  letter-spacing: 0.15em;      /* 15% of font size */
+  text-transform: uppercase;       /* makes all uppercase letters for emphasis */
+  color: #7a8290;        /* gray colour for contrast but still a relaxed look */
+  margin-bottom: 10px;           /* spacing below label before content for visual purposes */
+  border-bottom: 0.5px solid #2a2e33;      /* a nice border and separates label visually from block content */
+  padding-bottom: 6px;      
+}
+
+.meta-row {  /* this all controls the spacing */
+  display: flex;      /* By using flex the objects are automatically placed side by side, not on top of each other */
+  flex-direction: column;      /* ensures each meta key/value is placed on top of each other*/
+  gap: 1px;
+  margin-bottom: 10px;     /* separates this meta-row from the next section */
+}
+
+.meta-key {   /* this controls all the section headers like designation, objects class, etc */
+  font-family: 'IBM Plex Mono';  
+  font-size: 9px;  /* slightly smaller than values to make the them pop more */
+  color: #7a8290;      
+  letter-spacing: 0.1em;     /* small spacing between letters */
+  text-transform: uppercase;   
+}
+
+.meta-text-values {   /* this is the text/values of the different sections */
+  font-family: 'IBM Plex Mono';  
+  font-size: 12px;   /* slighty larger text to make them pop more */
+  color: #e8eaed;
+  font-weight: 500;    /* this is another way of saying the boldness of the text, and controlling it */
+}
+
+.meta-text-values.amber {      /* the highlighting of the text for the designation section/ the name of the file */
+  color: #e8a020;     /* amber/yellow colour for highlighting special values */
+}
+
+.meta-text-values.green {    /* the highlighting of the text for the status section/ the status of the file */
+  color: #2e8b57;    /* green colour for highlighting special values */
+}
+
+.class-badge {    /* this creates the look of the object class within the item record section */
+  display: inline-block;  
+  font-family: 'IBM Plex Mono';   
+  font-size: 11px;   /* slightly smaller as not to become over bearing */
+  font-weight: 600;
+  padding: 4px 12px;
+  border: 1px solid #e8a020;   /* this border creates the orange glow for this section */
+  color: #e8a020;   /* and this colour adds to the boldness of the section */
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin: 4px 0;
+}
+
+/****** this is the styling for the content section *******/
+.content-pane {    /*  this creates the entire border and container for the content section  */
+  border: 0.5px solid #2a2e33; /* thin border around the content block */
+  background: #111315;    /* which is then filled in by this dark but lighter than the proper background, colour */
+  display: flex;   /* By using flex the objects are automatically placed side by side, not on top of each other */
+  flex-direction: column;    /* this controls the direction it goes */
+  min-width: 0; /* allow text wrapping in grid */
+}
+
+.content-header {   /* this controls the heading section, the box and layout of the header and info about */
+  padding: 12px 16px;    /* space inside header so text isn't touching edges */
+  border-bottom: 0.5px solid #2a2e33;     
+  display: flex;      /* By using flex the objects are automatically placed side by side, not on top of each other */
+  align-items: baseline;   /* aligns text along baseline for neatness */
+  gap: 16px;
+  background: #181b1e; 
+}
+
+.item-id {    /* this is the styling for header 1 within the header section */
+  font-family: 'IBM Plex Mono';   
+  font-size: 18px;  
+  font-weight: 600;    /* slightly bold for emphasis */
+  color: #e8eaed;       /* good text colour contrast between text and background */
+  letter-spacing: 0.04em;     /* small spacing for readability */
+}
+
+.item-subtitle {    /* this is the styling for header 2 within the header section, the info about */
+  font-family: 'IBM Plex Mono';
+  font-size: 10px;  
+  color: #7a8290;     /* slightly less contrasty */
+  letter-spacing: 0.1em;      /* 10% of the font spacing between letters */
+  text-transform: uppercase;    /* uppercase to make it visually bolder */
+}
+
+/* this is the section that controls the content paragraph looks  *****/
+.section { /* the general container for the content sections */
+  padding: 14px 16px;    /* space inside so content doesn’t touch edges to make ith visually pleasing */
+  border-bottom: 0.5px solid #2a2e33; /* creates the space between the paragraph sections  */
+  color: #b6b9bd;   
+}  
+
+.section:last-child {    /* remove border for the last section so it doesn’t have an extra line at the bottom */
+  border-bottom: none; 
+}
+
+.section-tag {    
+  font-family: 'IBM Plex Mono';
+  font-size: 12px;     /* its the smaller, secondary text */
+  letter-spacing: 0.1em;     /* the letter spacing is 20% of the font size */
+  text-transform: uppercase;
+  color: #e8a020;    /* this is the colour of the text */
+  margin-bottom: 10px;  /* this adds nice visually pleasing pauses in the content */
+}
+
+.section-body {     /* main body text of the section */
+  font-family: 'IBM Plex Sans Condensed';
+  font-size: 15px;  
+  line-height: 1.65;       /* This here is to make the text look more classy and easier to read. */
+  color: #b6b9bd;
+}
+
+.section-body p {   /* spacing for paragraphs inside section body */
+  margin-bottom: 8px;      /* the space between paragraphs is 8px large */
+}
+
+.section-body p:last-child {    /* this removes the bottom margin for the last paragraph so spacing is consistent */
+  margin-bottom: 0;
+}
+
+/******* this section is the alert box at the top of the content section *********/
+.alert-box {    /* this is the container of the alert box at the top of the content page */
+  border: 0.5px solid #7a5210;     /* thin amber-brown border for highlights */
+  background: #1a1200;       /* dark background to match overall theme and create */
+  padding: 10px 14px;      /* space inside so text doesn’t touch edges */
+  margin-bottom: 10px;  
+}
+
+.alert-tag {    /* this is the header */
+  font-family: 'IBM Plex Mono';
+  font-size: 9px;
+  letter-spacing: 0.2em;    /* slightly spaced letters for clarity */
+  color: #e8a020;          /* amber color to grab attention */
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.alert-text {   /* this is the text */
+  font-family: 'IBM Plex Mono';
+  font-size: 11px;     
+  color: #d49020;         /* slightly lighter amber for the text of the alert */
+  line-height: 1.5;    /* Used for all the text, as it makes it look neater (I think) */
+}
+
+/******* this section is for the data expunged sections *********/
+.expunged {    /* this gives the 'data expunged' section in the text it's redish tint and border */
+  display: inline-block;   /* keeps badge inline but allows padding/margin */
+  font-family: 'IBM Plex Mono';
+  font-size: 11px;
+  background: #1e1010;
+  color: #cc3333;  /* bright red text to indicate expunged section */
+  padding: 1px 8px;
+  border: 0.5px solid #4a1515;      /* subtle dark border to highlight but not over highlight these sections */
+  letter-spacing: 0.1em;   /* spacing between letters for clarity, 10% of the font size*/
+}
+
+/********* this is the image section *********/
+.img-box {    /* this is to make the img be placed nicely */
+  align-content: center;     /* this controls the position of the image */
+  margin: 1em 0;    /*  this controls the spacing */
+}
+
+.img-box img {   /* these are the details for the image */
+  max-width: 100%;    /* means it fills the container created for the image fully */
+  height: auto; 
+  border: 2px solid #444;  
+  border-radius: 4px;    /* this gives it a small border around the image */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);   /* and just the slightest bit of box shadow for depth */
+}
+
+.hr-look { /* this controls the look of the lines in between the content*/
+  border: 1px solid #7a8290af;   /* controls the contrast of colour, and the thickness of it */
+}
+
+.btn {
+  font-family: 'IBM Plex Mono';
+  font-size: 10px;
+  padding: 7px 14px;
+  border: 0.5px solid #2a2e33;
+  background: #111315;
+  color: #e8eaed;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn:hover {
+  border-color: #3a3f46;
+  color: #ffffff;
+}
+
+.scp-list {
+  padding-left: 6px;   /* was ~40px default browser padding */
+  margin: 0;
+}
+
+.scp-list-item {
+  margin-bottom: 6px;
+  list-style-position: inside; /* pulls bullets further left */
+}
+
+.scp-list-item a {
+  color: #b6b9bd;
+  text-decoration: none;
+}
+
+/************ this makes it mobile responsive **************/
+@media (max-width: 500px) {
+  .main-grid {
+    grid-template-columns: 1fr; /* stack vertically */
+  }
+
+  .sidebar {
+    order: 1; /* sidebar first */
+  }
+
+  .content-pane {
+    order: 2; /* content second */
+  }
+
+  .nav-strip {
+    flex-direction: column;
+  }
+
+  .img-box img {
+    width: 90%; /* leaves a little padding on small screens */
+  }
+}
